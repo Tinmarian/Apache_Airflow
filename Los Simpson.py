@@ -13,14 +13,9 @@ default_args = {
     "start_date": datetime(2023, 1, 9)
 }
 
-def remember_homer(**kwargs):
-    first=kwargs[first]
-    second=kwargs[second]
-    third=kwargs[third]
+def remember_homer(first,second,third):
     print(
-
         f"{first}\n\n\n{second}\n\n\n{third*150}"
-
     )
 
 with DAG(
