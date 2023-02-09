@@ -42,3 +42,5 @@ with DAG(
                                     )
 
     end = DummyOperator(task_id='end')
+
+start >> Remember_Homer >> end
