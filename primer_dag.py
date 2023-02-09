@@ -27,7 +27,7 @@ with DAG(
 
     prueba_python = PythonOperator(
                                     task_id='python_op',
-                                    python_callable=hello_world_loop
+                                    python_callable=hello_world_loop,
                                     op_args=['Tinmar','Alejandra','Kenya','Atocha','Francisco','Paola','Lucy','Ajna']
                                 )
 
