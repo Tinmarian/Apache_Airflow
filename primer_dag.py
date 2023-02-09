@@ -6,6 +6,7 @@ from airflow.operators.bash import BashOperator
 
 from datetime import datetime
 
+NAME_LIST = ['Tinmar','Alejandra','Kenya','Atocha','Francisco','Paola','Lucy','Ajna']
 
 default_args = {
     "owner":"Tinmar",
@@ -28,8 +29,13 @@ with DAG(
     prueba_python = PythonOperator(
                                     task_id='python_op',
                                     python_callable=hello_world_loop,
-                                    op_args=['Tinmar','Alejandra','Kenya','Atocha','Francisco','Paola','Lucy','Ajna']
+                                    op_args=NAME_LIST
                                 )
+
+    prueba_bash = BashOperator(
+                               task_id='bash_op',
+                               bash_command='echo Prueba Bash' 
+                            )
 
     end_task = DummyOperator(task_id='end_task')
 
