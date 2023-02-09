@@ -15,7 +15,11 @@ default_args = {
 
 def remember_homer(first,second,third):
     print(
-        f"{first}\n\n\n{second}\n\n\n{third*150}"
+        f"\n\n\n{first}\n\n{second}\n\n{third*7}\n{third*7}\n{third*7}\n \
+        {third*7}\n{third*7}\n{third*7}\n{third*7}\n{third*7}\n{third*7}\n \
+        {third*7}\n{third*7}\n{third*7}\n{third*7}\n{third*7}\n{third*7}\n \
+        {third*7}\n{third*7}\n{third*7}\n{third*7}\n{third*7}\n{third*7}\n \
+        {third*3}\n" 
     )
 
 with DAG(
