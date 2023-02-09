@@ -20,7 +20,7 @@ with DAG(
         'mi_primer_dag',
         catchup = False,
         default_args=default_args,
-        schedule_intervale=None
+        schedule_interval=None
         ) as dag:
 
     start_task = DummyOperator(task_id='start_task')
