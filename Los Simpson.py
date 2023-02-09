@@ -24,10 +24,10 @@ def remember_homer(**kwargs):
     )
 
 with DAG(
-            'Los_Simpson',
-            default_args-default_args,
-            catchup=False,
-            schedule_interval=None
+        'Los_Simpson',
+        default_args=default_args,
+        catchup=False,
+        schedule_interval=None
     ) as dag:
 
     start = DummyOperator(task_id='start')
