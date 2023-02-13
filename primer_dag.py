@@ -18,10 +18,11 @@ def hello_world_loop(*args):
     for palabra in args:
         print(f'Hola {palabra}')
 with DAG(
-        'mi_primer_dag',
+        'primer_dag',
         catchup = False,
         default_args=default_args,
-        schedule_interval=None
+        schedule_interval=None,
+        tags=['Curso 2', 'Apache_Airflow']
         ) as dag:
 
     start_task = DummyOperator(task_id='start_task')
@@ -41,4 +42,4 @@ with DAG(
 
 
 
-    start_task >> prueba_python >> end_task
+    start_task >> prueba_python >> prueba_bash >> end_task

@@ -26,7 +26,8 @@ with DAG(
         'Los_Simpson',
         default_args=default_args,
         catchup=False,
-        schedule_interval=None
+        schedule_interval=None,
+        tags=['Curso 2', 'Apache_Airflow']
     ) as dag:
 
     start = DummyOperator(task_id='start')
