@@ -24,8 +24,9 @@ def xcom_push(*args, **context):
 
 def xcom_pull(**context):
     ti = context['ti']
-    valor_recibido = ti.xcom_pull(task_ids='prueba_push')
-    print(valor_recibido)
+    valor_recibido = ti.xcom_pull(task_ids='xcom_push')
+    valor_selecciondado = ti.xcom_pull(task_ids='xcom_push',key='xcom_prueba')
+    print(valor_recibido, valor_selecciondado)
 
 with DAG(
         'xcoms_cuarto_dag',
@@ -48,7 +49,6 @@ with DAG(
     prueba_pull = PythonOperator(
                                     task_id='xcom_pull',
                                     python_callable=xcom_pull,
-                                    op_args=NAME_LIST,
                                     provide_context=True,
                                     do_xcom_push=True
                                 )
