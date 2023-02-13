@@ -3,7 +3,7 @@ from datetime import datetime
 
 from airflow.operators.python import PythonOperator
 from airflow.operators.dummy import DummyOperator
-from airflow.operator.subdag import SubDagOperator
+from airflow.operators.subdag import SubDagOperator
 
 default_args = {
     "owner":"Tinmar",
