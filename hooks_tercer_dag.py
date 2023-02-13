@@ -3,7 +3,6 @@ from airflow.models import DAG
 from airflow.operators.python import PythonOperator
 from airflow.operators.dummy import DummyOperator
 from airflow.utils import dates
-import pandas as pd
 import logging
 
 from airflow.hooks.postgres_hook import PostgresHook
@@ -14,7 +13,7 @@ default_args = {
 }
 
 def get_pandas():
-    conn = PostgresHook('redshift_default',region='us-east-1')
+    conn = PostgresHook('redshift_default')
     df = conn.get_pandas_df('SELECT * FROM TABLE')
     logging.info('Datos obtenidos de la query')
     print(df.head())
