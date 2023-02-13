@@ -19,7 +19,7 @@ def hello_world_loop(*args):
     for palabra in args:
         print(f'Hola {palabra}')
 with DAG(
-        'primer_dag',
+        'pools_sexto_dag',
         catchup = False,
         default_args=default_args,
         schedule_interval=None,
