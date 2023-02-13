@@ -10,7 +10,7 @@ NAME_LIST = ['Tinmar','Alejandra','Kenya','Atocha','Francisco','Paola','Lucy','A
 
 default_args = {
     "owner":"Tinmar",
-    "start_Date": datetime(2023,1,13)
+    "start_date": datetime(2023,1,13)
 }
 
 def xcom_push(*args, **context):
@@ -46,12 +46,12 @@ with DAG(
 
     jinja_2 = BashOperator(
                             task_id='jinja_2',
-                            bash_command='echo {{ ti.xcom_pull(task_ids=prueba_push) }}'
+                            bash_command='echo {{ ti.xcom_pull(task_ids="xcom_push") }}'
                         )
 
     jinja_3 = BashOperator(
                             task_id='jinja_3',
-                            bash_command='echo {{ ti.xcom_pull(task_ids=prueba_push,key=''xcom_prueba) }}'
+                            bash_command='echo {{ ti.xcom_pull(task_ids="xcom_push",key="xcom_prueba") }}'
                         )
 
     jinja_4 = BashOperator(
@@ -60,3 +60,6 @@ with DAG(
                         )
 
     end = DummyOperator(task_id='end')
+
+
+    start >> prueba_push >> jinja_1 >> jinja_2 >> jinja_3 >> jinja_4 >> end
