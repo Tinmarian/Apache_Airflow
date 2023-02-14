@@ -11,7 +11,7 @@ default_Args = {
 }
 
 with DAG(
-            'dynamic_tasks_noveno_dag',
+            '9_dynamic_tasks_dag',
             catchup=False,
             schedule_interval=None,
             default_args=default_Args,

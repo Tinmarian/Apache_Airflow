@@ -10,8 +10,7 @@ NAME_LIST = ['Tinmar','Alejandra','Kenya','Atocha','Francisco','Paola','Lucy','A
 
 default_args = {
     "owner":"Tinmar",
-    "start_date": datetime(2023, 1, 9),
-    "pool":"Alta Prioridad"  # Podemos hacer que TODAS las tasks de un DAG se ejecuten en una misma pool
+    "start_date": datetime(2023, 1, 9)
 }
 
 # PythonOperator: prueba_python
@@ -19,7 +18,7 @@ def hello_world_loop(*args):
     for palabra in args:
         print(f'Hola {palabra}')
 with DAG(
-        'pools_sexto_dag',
+        '1_primer_dag',
         catchup = False,
         default_args=default_args,
         schedule_interval=None,
@@ -31,8 +30,7 @@ with DAG(
     prueba_python = PythonOperator(
                                     task_id='python_op',
                                     python_callable=hello_world_loop,
-                                    op_args=NAME_LIST,
-                                    #pool='Alta Prioridad'  # También podemos hacer que solo una tarea se ejecute en una pool diferente a la de default
+                                    op_args=NAME_LIST
                                 )
 
     prueba_bash = BashOperator(

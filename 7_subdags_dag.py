@@ -13,7 +13,7 @@ default_args = {
 def hello():
     print('Hola Mundo')
 
-def load_subdag(parent_dag_name,task_id,default_args):
+def load_subdag(parent_dag_name=None,task_id=None,default_args=None):
     with DAG(
             dag_id=f'{parent_dag_name}.{task_id}',
             default_args=default_args,
@@ -34,7 +34,7 @@ def load_subdag(parent_dag_name,task_id,default_args):
     return subdag
 
 with DAG(
-        'subdags_septimo_dag',
+        '7_subdags_dag',
         catchup=False,
         schedule_interval='@daily',
         default_args=default_args,
@@ -44,7 +44,7 @@ with DAG(
     start = DummyOperator(task_id='start')
 
     subdag_args = {
-        "parent_dag_name":"subdags_septimo_dag",
+        "parent_dag_name":"7_subdags_dag",
         "task_id":"subdag",
         "default_args":default_args
     }

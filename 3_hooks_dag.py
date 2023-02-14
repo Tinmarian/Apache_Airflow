@@ -21,7 +21,7 @@ def get_pandas():
     logging.info('Guardado en S3')
 
 with DAG(
-        'hooks_tercer_dag',
+        '3_hooks_dag',
         catchup=False,
         default_args=default_args,
         schedule_interval=None,

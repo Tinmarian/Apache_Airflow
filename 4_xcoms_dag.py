@@ -29,7 +29,7 @@ def xcom_pull(**context):
     print(valor_recibido, valor_selecciondado)
 
 with DAG(
-        'xcoms_cuarto_dag',
+        '4_xcoms_dag',
         catchup = False,
         default_args=default_args,
         schedule_interval=None,

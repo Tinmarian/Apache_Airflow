@@ -22,7 +22,7 @@ def xcom_push(*args, **context):
     return 'Este es un Xcom'
 
 with DAG(
-        'jinja_macros_quinto_dag',
+        '5_jinja_macros_dag',
         catchup=False,
         schedule_interval=None,
         default_args=default_args,

@@ -37,7 +37,7 @@ def create_dag(dag_id,schedule,default_args,pais):
 paises = ['Mexico','Brasil','Nicaragua']
 
 for pais in paises:
-    dag_id=f"dynamic.dags.decimo.dag.{pais}"
+    dag_id=f"10_dynamic_dags_{pais}"
     default_args={"owner":f"Tinmar_{pais}","start_date":datetime(2023,1,13)}
     
     globals()[dag_id] = create_dag(dag_id,None,default_args=default_args,pais=pais)

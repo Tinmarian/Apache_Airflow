@@ -38,7 +38,7 @@ def menor_50(**context):
     print(f'El número fue menor a 50 y fue {number}')
 
 with DAG(
-        'branch_octavo_dag',
+        '8_branch_dag',
         catchup=False,
         schedule_interval=None,
         default_args=default_args,
