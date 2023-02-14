@@ -10,7 +10,7 @@ default_args = {
 }
 
 with DAG(
-            'example_dag',
+            '11.1_example_dag',
             catchup=False,
             default_args=default_args,
             schedule_interval=None,

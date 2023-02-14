@@ -10,7 +10,7 @@ default_args = {
 }
 
 with DAG(
-            'example_dag',
+            '11.2_trigger_dag',
             catchup=False,
             default_args=default_args,
             schedule_interval=None,
@@ -21,7 +21,7 @@ with DAG(
 
     trigger = TriggerDagRunOperator(
                                         task_id='trigger',
-                                        trigger_dag_id='example_dag',
+                                        trigger_dag_id='11.1_example_dag',
                                         wait_for_completion=True   
                                     )
 
