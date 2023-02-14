@@ -1,5 +1,6 @@
 from airflow.models import DAG
 from datetime import datetime
+import jinja2
 
 from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
@@ -12,7 +13,7 @@ default_args = {
 
 def hola(**kwargs):
     print(kwargs['dag_run'].conf)
-    print(kwargs['dag_run'].conf['variable'])
+    # print(kwargs['dag_run'].conf['variable'])
 
 
 with DAG(
@@ -20,7 +21,8 @@ with DAG(
             catchup=False,
             default_args=default_args,
             schedule_interval=None,
-            tags=['Curso 2', 'Apache_Airflow']
+            tags=['Curso 2', 'Apache_Airflow'],
+            template_undefined=jinja2.Undefined
         ) as dag:
 
     start = DummyOperator(task_id="start")
